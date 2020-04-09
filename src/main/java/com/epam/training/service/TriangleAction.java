@@ -3,88 +3,83 @@ package com.epam.training.service;
 import com.epam.training.entity.Point;
 import com.epam.training.entity.Triangle;
 
-
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-
 public class TriangleAction implements AreaCalculator, PerimeterCalculator, SideCalculator {
         @Override
-    public BigDecimal calcArea(Triangle triangle) {
-        BigDecimal p = getHalfPerimeter(triangle);
-        BigDecimal pMinusA = p.add(getSideA(triangle).negate());
-        BigDecimal pMinusB = p.add(getSideB(triangle).negate());
-        BigDecimal pMinusC = p.add(getSideC(triangle).negate());
-        return (p.multiply(pMinusA).multiply(pMinusB).multiply(pMinusC)).sqrt(new MathContext(5, RoundingMode.HALF_UP));
+    public double calcArea(Triangle triangle) {
+        double p = getHalfPerimeter(triangle);
+        double pMinusA = p - getSideA(triangle);
+        double pMinusB = p - getSideB(triangle);
+        double pMinusC = p - getSideC(triangle);
+        return Math.sqrt(p*pMinusA*pMinusB*pMinusC);
     }
 
     @Override
-    public BigDecimal calcPerimeter(Triangle triangle) {
-        BigDecimal sideA = getSideA(triangle);
-        BigDecimal sideB = getSideB(triangle);
-        BigDecimal sideC = getSideC(triangle);
-        return sideA.add(sideB.add(sideC));
+    public double calcPerimeter(Triangle triangle) {
+        double sideA = getSideA(triangle);
+        double sideB = getSideB(triangle);
+        double sideC = getSideC(triangle);
+        return sideA + sideB + sideC;
     }
 
     @Override
-    public BigDecimal calcSide(Point a, Point b) {
+    public double calcSide(Point a, Point b) {
         double deltaX = b.getX() - a.getX();
         double deltaY = b.getY() - a.getY();
-        return new BigDecimal(Math.sqrt(deltaX * deltaX + deltaY * deltaY));
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 
     public boolean isEquilateral(Triangle triangle) {
-        BigDecimal a = getSideA(triangle);
-        BigDecimal b = getSideB(triangle);
-        BigDecimal c = getSideC(triangle);
-        return a.equals(b) && b.equals(c);
+        double a = getSideA(triangle);
+        double b = getSideB(triangle);
+        double c = getSideC(triangle);
+        return a == b && b == c;
     }
 
     public boolean isIsosceles(Triangle triangle) {
-        BigDecimal a = getSideA(triangle);
-        BigDecimal b = getSideB(triangle);
-        BigDecimal c = getSideC(triangle);
-        return a.equals(b) || b.equals(c) || a.equals(c);
+        double a = getSideA(triangle);
+        double b = getSideB(triangle);
+        double c = getSideC(triangle);
+        return a == b || b == c || a == c;
     }
 
     public boolean isRectangular(Triangle triangle) {
-        BigDecimal a = getSideA(triangle);
-        BigDecimal b = getSideB(triangle);
-        BigDecimal c = getSideC(triangle);
+        double a = getSideA(triangle);
+        double b = getSideB(triangle);
+        double c = getSideC(triangle);
 
-        boolean flag1 = a.multiply(a).equals(b.multiply(b).add(c.multiply(c)));
-        boolean flag2 = b.multiply(b).equals(a.multiply(a).add(c.multiply(c)));
-        boolean flag3 = c.multiply(c).equals(b.multiply(b).add(a.multiply(a)));
+        boolean flag1 = a * a == (b * b + c * c);
+        boolean flag2 = b * b == (a * a + c * c);
+        boolean flag3 = c * c == (a * a + b * b);
         return flag1 || flag2 || flag3;
     }
 
     public boolean isObtuse(Triangle triangle) {
-        BigDecimal a = getSideA(triangle);
-        BigDecimal b = getSideB(triangle);
-        BigDecimal c = getSideC(triangle);
+        double a = getSideA(triangle);
+        double b = getSideB(triangle);
+        double c = getSideC(triangle);
 
-        boolean flag1 = a.multiply(a).compareTo(b.multiply(b).add(c.multiply(c))) > 0;
-        boolean flag2 = b.multiply(b).compareTo(a.multiply(a).add(c.multiply(c))) > 0;
-        boolean flag3 = c.multiply(c).compareTo(b.multiply(b).add(a.multiply(a))) > 0;
+        boolean flag1 = a * a > (b * b + c * c);
+        boolean flag2 = b * b > (a * a + c * c);
+        boolean flag3 = c * c > (a * a + b * b);
         return flag1 || flag2 || flag3;
 
     }
 
-    private BigDecimal getSideA(Triangle triangle) {
+    private double getSideA(Triangle triangle) {
         return calcSide(triangle.getPointA(), triangle.getPointB());
     }
 
-    private BigDecimal getSideB(Triangle triangle) {
+    private double getSideB(Triangle triangle) {
         return calcSide(triangle.getPointB(), triangle.getPointC());
 
     }
 
-    private BigDecimal getSideC(Triangle triangle) {
+    private double getSideC(Triangle triangle) {
         return calcSide(triangle.getPointC(), triangle.getPointA());
     }
 
-    private BigDecimal getHalfPerimeter(Triangle triangle) {
-        return calcPerimeter(triangle).divide(new BigDecimal(5), RoundingMode.HALF_UP);
+    private double getHalfPerimeter(Triangle triangle) {
+        return calcPerimeter(triangle)/2.0;
     }
 
 

@@ -36,8 +36,8 @@ public class Warehouse implements Observer {
     }
 
     private TriangleParameters calcTriangleParameters(Triangle triangle) {
-        BigDecimal area = triangleAction.calcArea(triangle);
-        BigDecimal perimeter = triangleAction.calcPerimeter(triangle);
+        double area = triangleAction.calcArea(triangle);
+        double perimeter = triangleAction.calcPerimeter(triangle);
         return new TriangleParameters(area, perimeter);
 
     }

@@ -6,5 +6,5 @@ import com.epam.training.entity.Point;
 import java.math.BigDecimal;
 
 public interface SideCalculator {
-    BigDecimal calcSide(Point a, Point b);
+    double calcSide(Point a, Point b);
 }

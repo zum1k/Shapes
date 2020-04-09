@@ -43,10 +43,12 @@ public class Triangle {
     }
 
     public Triangle(Point pointA, Point pointB, Point pointC) {
+
         this.pointA = pointA;
         this.pointB = pointB;
         this.pointC = pointC;
     }
+
 
     public Triangle() {
     }

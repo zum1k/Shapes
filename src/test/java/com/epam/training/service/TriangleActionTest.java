@@ -1,31 +1,50 @@
 package com.epam.training.service;
 
+import com.epam.training.entity.Id;
+import com.epam.training.entity.Point;
+import com.epam.training.entity.Triangle;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+
 import static org.testng.Assert.*;
 
 public class TriangleActionTest {
+    private final static Point POINT_A = new Point(0,0);
+    private final static Point POINT_B = new Point(3,0);
+    private final static Point POINT_C = new Point(0,4);
+    private final static Id ID = new Id(1L);
+    private final static Triangle TRIANGLE = new Triangle(POINT_A, POINT_B, POINT_C);
+    private static final double DELTA = 0.01;
 
-    @BeforeMethod
-    public void setUp() {
-    }
+    private final TriangleAction triangleAction = new TriangleAction();
 
-    @AfterMethod
-    public void tearDown() {
-    }
 
     @Test
     public void testCalcArea() {
+        //when
+        double result = triangleAction.calcArea(TRIANGLE);
+        //then
+        Assert.assertEquals(6.0, result,DELTA);
     }
 
     @Test
     public void testCalcPerimeter() {
+        //when
+        double result = triangleAction.calcPerimeter(TRIANGLE);
+        //then
+        Assert.assertEquals(12.0, result,DELTA);
     }
 
     @Test
     public void testCalcSide() {
+        //when
+        double result = triangleAction.calcSide(POINT_A, POINT_B);
+        //then
+        Assert.assertEquals(3, result,DELTA);
     }
 
     @Test

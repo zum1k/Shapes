@@ -3,19 +3,19 @@ package com.epam.training.observer;
 import java.math.BigDecimal;
 
  class TriangleParameters {
-    private BigDecimal Area;
-    private BigDecimal Perimeter;
+    private double Area;
+    private double Perimeter;
 
-    TriangleParameters(BigDecimal area, BigDecimal perimeter) {
+    TriangleParameters(double area, double perimeter) {
         Area = area;
         Perimeter = perimeter;
     }
 
-     public BigDecimal getArea() {
+     public double getArea() {
          return Area;
      }
 
-     public BigDecimal getPerimeter() {
+     public double getPerimeter() {
          return Perimeter;
      }
  }
