@@ -8,6 +8,7 @@ import static org.testng.Assert.*;
 
 public class TriangleRepositoryImplTest {
 
+
     @BeforeMethod
     public void setUp() {
     }
