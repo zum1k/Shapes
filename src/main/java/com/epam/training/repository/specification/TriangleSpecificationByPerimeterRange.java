@@ -1,4 +1,10 @@
 package com.epam.training.repository.specification;
 
-public class TriangleSpecificationByPerimeterRange {
+import com.epam.training.entity.Triangle;
+
+public class TriangleSpecificationByPerimeterRange implements TriangleSpecification {
+    @Override
+    public boolean specified(Triangle triangle) {
+        return false;
+    }
 }
