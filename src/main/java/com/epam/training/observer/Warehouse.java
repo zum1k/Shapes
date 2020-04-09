@@ -4,7 +4,6 @@ import com.epam.training.entity.Id;
 import com.epam.training.entity.Triangle;
 import com.epam.training.service.TriangleAction;
 
-import java.math.BigDecimal;
 import java.util.Map;
 
 public class Warehouse implements Observer {

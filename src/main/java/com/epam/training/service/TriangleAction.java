@@ -4,13 +4,13 @@ import com.epam.training.entity.Point;
 import com.epam.training.entity.Triangle;
 
 public class TriangleAction implements AreaCalculator, PerimeterCalculator, SideCalculator {
-        @Override
+    @Override
     public double calcArea(Triangle triangle) {
         double p = getHalfPerimeter(triangle);
         double pMinusA = p - getSideA(triangle);
         double pMinusB = p - getSideB(triangle);
         double pMinusC = p - getSideC(triangle);
-        return Math.sqrt(p*pMinusA*pMinusB*pMinusC);
+        return Math.sqrt(p * pMinusA * pMinusB * pMinusC);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
     }
 
     private double getHalfPerimeter(Triangle triangle) {
-        return calcPerimeter(triangle)/2.0;
+        return calcPerimeter(triangle) / 2.0;
     }
 
 

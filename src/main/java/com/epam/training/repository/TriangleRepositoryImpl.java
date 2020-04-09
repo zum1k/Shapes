@@ -18,9 +18,10 @@ public class TriangleRepositoryImpl implements TriangleRepository {
     private static final String DEFAULT_PATH = "Points.txt";
 
     private Observer observer;
-    private Map<Id, Triangle> triangleMap = new HashMap<>() {};
+    private Map<Id, Triangle> triangleMap = new HashMap<>() {
+    };
 
-    public TriangleRepositoryImpl(Observer observer ) {
+    public TriangleRepositoryImpl(Observer observer) {
         List<Triangle> triangles;
         triangles = loadData();
         for (Triangle triangle : triangles) {
