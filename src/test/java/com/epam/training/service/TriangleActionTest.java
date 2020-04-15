@@ -3,16 +3,12 @@ package com.epam.training.service;
 import com.epam.training.entity.Id;
 import com.epam.training.entity.Point;
 import com.epam.training.entity.Triangle;
+import com.epam.training.service.impl.TriangleAction;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.math.BigDecimal;
-
-import static org.testng.Assert.*;
-
 public class TriangleActionTest {
+    //given
     private final static Point POINT_A = new Point(0,0);
     private final static Point POINT_B = new Point(3,0);
     private final static Point POINT_C = new Point(0,4);

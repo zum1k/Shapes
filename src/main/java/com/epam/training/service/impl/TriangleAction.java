@@ -1,7 +1,10 @@
-package com.epam.training.service;
+package com.epam.training.service.impl;
 
 import com.epam.training.entity.Point;
 import com.epam.training.entity.Triangle;
+import com.epam.training.service.AreaCalculator;
+import com.epam.training.service.PerimeterCalculator;
+import com.epam.training.service.SideCalculator;
 
 public class TriangleAction implements AreaCalculator, PerimeterCalculator, SideCalculator {
     @Override
@@ -47,10 +50,10 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
         double b = getSideB(triangle);
         double c = getSideC(triangle);
 
-        boolean flag1 = a * a == (b * b + c * c);
-        boolean flag2 = b * b == (a * a + c * c);
-        boolean flag3 = c * c == (a * a + b * b);
-        return flag1 || flag2 || flag3;
+        boolean isAHypotenuse = a * a == (b * b + c * c);
+        boolean isBHypotenuse = b * b == (a * a + c * c);
+        boolean isCHypotenuse = c * c == (a * a + b * b);
+        return isAHypotenuse || isBHypotenuse || isCHypotenuse;
     }
 
     public boolean isObtuse(Triangle triangle) {
@@ -58,10 +61,10 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
         double b = getSideB(triangle);
         double c = getSideC(triangle);
 
-        boolean flag1 = a * a > (b * b + c * c);
-        boolean flag2 = b * b > (a * a + c * c);
-        boolean flag3 = c * c > (a * a + b * b);
-        return flag1 || flag2 || flag3;
+        boolean compareAWithBC = a * a > (b * b + c * c);
+        boolean compareBWithAC = b * b > (a * a + c * c);
+        boolean compareCWithAC = c * c > (a * a + b * b);
+        return compareAWithBC || compareBWithAC || compareCWithAC;
 
     }
 

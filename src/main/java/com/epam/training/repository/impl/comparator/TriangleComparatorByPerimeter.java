@@ -1,7 +1,7 @@
-package com.epam.training.repository.comparator;
+package com.epam.training.repository.impl.comparator;
 
 import com.epam.training.entity.Triangle;
-import com.epam.training.service.TriangleAction;
+import com.epam.training.service.impl.TriangleAction;
 
 import java.util.Comparator;
 

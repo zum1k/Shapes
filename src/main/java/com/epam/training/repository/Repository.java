@@ -1,7 +1,6 @@
 package com.epam.training.repository;
 
 import com.epam.training.entity.Triangle;
-import com.epam.training.repository.specification.Specification;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,5 +14,5 @@ public interface Repository<T> {
 
     List<Triangle> sort(Comparator<T> comparator);
 
-    List<T> query(Specification specification);
+    List<T> query(Specification<T> specification);
 }

@@ -1,14 +1,30 @@
 package com.epam.training.entity;
 
+import com.epam.training.observer.Observable;
+import com.epam.training.observer.Observer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Triangle {
-
+public class Triangle implements Observable {
+    private static final Logger LOGGER = LogManager.getLogger(Triangle.class);
     private Id id;
     private Point pointA;
     private Point pointB;
     private Point pointC;
+    private final List<Observer> observers = new ArrayList<>();
+
+    public Triangle(Point pointA, Point pointB, Point pointC) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
+    }
+
+    public Triangle() {
+    }
 
     public void setId(Id id) {
         this.id = id;
@@ -24,6 +40,7 @@ public class Triangle {
 
     public void setPointA(Point pointA) {
         this.pointA = pointA;
+        notifyObservers();
     }
 
     public Point getPointB() {
@@ -32,6 +49,7 @@ public class Triangle {
 
     public void setPointB(Point pointB) {
         this.pointB = pointB;
+        notifyObservers();
     }
 
     public Point getPointC() {
@@ -40,17 +58,25 @@ public class Triangle {
 
     public void setPointC(Point pointC) {
         this.pointC = pointC;
+        notifyObservers();
     }
 
-    public Triangle(Point pointA, Point pointB, Point pointC) {
-
-        this.pointA = pointA;
-        this.pointB = pointB;
-        this.pointC = pointC;
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
     }
 
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
 
-    public Triangle() {
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+        LOGGER.info("Observers notified. Parameters changed. " + this);
     }
 
     @Override
@@ -58,7 +84,7 @@ public class Triangle {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Triangle triangle = (Triangle) o;
@@ -75,11 +101,11 @@ public class Triangle {
 
     @Override
     public String toString() {
-        return new String(new StringBuffer().append(this.getClass()).append(" ")
+        return new StringBuilder().append(this.getClass()).append(" ")
                 .append(id).append(" [")
                 .append("Point A: ").append(pointA.toString()).append(", ")
                 .append("Point B: ").append(pointB.toString()).append(", ")
-                .append("Point C: ").append(pointC.toString()).append("  ]"));
+                .append("Point C: ").append(pointC.toString()).append("  ]").toString();
 
     }
 }

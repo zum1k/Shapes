@@ -1,4 +1,4 @@
-package com.epam.training.repository.comparator;
+package com.epam.training.repository.impl.comparator;
 
 import com.epam.training.entity.Id;
 import com.epam.training.entity.Triangle;

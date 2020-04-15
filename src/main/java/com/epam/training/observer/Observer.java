@@ -5,9 +5,5 @@ import com.epam.training.entity.Triangle;
 
 
 public interface Observer {
-    public void update(Triangle triangle);
-
-    public void remove(Id id);
-
-    public void add(Triangle triangle);
+     void update(Triangle triangle);
 }

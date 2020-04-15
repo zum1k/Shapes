@@ -1,10 +1,10 @@
-package com.epam.training.observer;
+package com.epam.training.warehouse;
 
-class TriangleParameters {
+public class TriangleParameters {
     private double Area;
     private double Perimeter;
 
-    TriangleParameters(double area, double perimeter) {
+    public TriangleParameters(double area, double perimeter) {
         Area = area;
         Perimeter = perimeter;
     }
