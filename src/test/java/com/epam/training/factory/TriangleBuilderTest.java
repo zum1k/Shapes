@@ -6,6 +6,7 @@ import static org.testng.Assert.*;
 
 public class TriangleBuilderTest {
 
+
     @Test
     public void testBuildTriangles() {
     }

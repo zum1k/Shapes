@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleParser {
-    private static final String REG_EXP_CHECKER = "^(\\s[-]?\\d{1,10}+){6}";
+    private static final String REG_EXP_CHECKER = "^([-]?\\d{1,10}+\\s?){6}";
     private static final String SPACE_DELINATOR = " ";
     private static final String SPACE_REG_EXP = "\\s+";
 
