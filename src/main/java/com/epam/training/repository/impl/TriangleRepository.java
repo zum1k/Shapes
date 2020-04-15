@@ -27,23 +27,33 @@ public class TriangleRepository implements Repository<Triangle> {
     @Override
     public void add(Triangle triangle) {
         triangles.add(triangle);
+        LOGGER.info("Triangle added: " + triangle);
     }
 
     @Override
     public void remove(Triangle triangle) {
         int num = (int) (triangle.getId().getId());
         triangles.remove(num);
+        LOGGER.info("Triangle removed: "+triangle);
     }
 
     @Override
     public void update(Triangle triangle) {
         int id = (int) (triangle.getId().getId());
         triangles.set(id, triangle);
+        LOGGER.info("Triangle updated: "+triangle);
     }
 
     @Override
     public List<Triangle> sort(Comparator<Triangle> comparator) {
         triangles.sort(comparator);
+        LOGGER.info("Triangles sorted by"+comparator.getClass());
+        return triangles;
+    }
+
+    @Override
+    public List<Triangle> getAll() {
+        LOGGER.info("Triangles returned.");
         return triangles;
     }
 
@@ -55,6 +65,7 @@ public class TriangleRepository implements Repository<Triangle> {
                 result.add(triangle);
             }
         }
+        LOGGER.info("Triangles quered by:" + specification.getClass());
         return result;
     }
 }

@@ -12,6 +12,8 @@ public interface Repository<T> {
 
     void update(T t);
 
+    List<T> getAll();
+
     List<Triangle> sort(Comparator<T> comparator);
 
     List<T> query(Specification<T> specification);

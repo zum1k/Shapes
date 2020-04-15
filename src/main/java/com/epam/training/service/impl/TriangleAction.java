@@ -65,7 +65,6 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
         boolean compareBWithAC = b * b > (a * a + c * c);
         boolean compareCWithAC = c * c > (a * a + b * b);
         return compareAWithBC || compareBWithAC || compareCWithAC;
-
     }
 
     private double getSideA(Triangle triangle) {
@@ -74,7 +73,6 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
 
     private double getSideB(Triangle triangle) {
         return calcSide(triangle.getPointB(), triangle.getPointC());
-
     }
 
     private double getSideC(Triangle triangle) {
@@ -84,6 +82,4 @@ public class TriangleAction implements AreaCalculator, PerimeterCalculator, Side
     private double getHalfPerimeter(Triangle triangle) {
         return calcPerimeter(triangle) / 2.0;
     }
-
-
 }
