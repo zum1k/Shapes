@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 
-import static org.testng.Assert.*;
-
 public class TriangleComparatorByXCoordinateOfFirstPointTest {
     private final Comparator<Triangle> comparator = new TriangleComparatorByXCoordinateOfFirstPoint();
     private final Point POINT_A = new Point(0, 0);
@@ -25,7 +23,6 @@ public class TriangleComparatorByXCoordinateOfFirstPointTest {
         //then
         Assert.assertEquals(-1, result);
     }
-
 
     @Test
     public void testCompareByXCors_One_Zero_Minus() {

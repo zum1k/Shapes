@@ -6,6 +6,7 @@ import static org.testng.Assert.*;
 
 public class TriangleObserverTest {
 
+
     @Test
     public void testUpdate() {
     }

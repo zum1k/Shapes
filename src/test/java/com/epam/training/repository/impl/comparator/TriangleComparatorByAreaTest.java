@@ -9,12 +9,12 @@ import java.util.Comparator;
 
 public class TriangleComparatorByAreaTest {
     private final Comparator<Triangle> comparator = new TriangleComparatorByArea();
-    private final Point POINT_A = new Point(0, 0);
-    private final Point POINT_B = new Point(2, 0);
-    private final Point POINT_C = new Point(0, 4);
-    private final Point POINT_D = new Point(0, 2);
-    private final Triangle TRIANGLE1 = new Triangle(POINT_A, POINT_B, POINT_C);
-    private final Triangle TRIANGLE2 = new Triangle(POINT_A, POINT_B, POINT_D);
+    private final Point pointA = new Point(0, 0);
+    private final Point pointB = new Point(2, 0);
+    private final Point pointC = new Point(0, 4);
+    private final Point pointD = new Point(0, 2);
+    private final Triangle TRIANGLE1 = new Triangle(pointA, pointB, pointC);
+    private final Triangle TRIANGLE2 = new Triangle(pointA, pointB, pointD);
 
 
     @Test

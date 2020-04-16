@@ -7,15 +7,13 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 
-import static org.testng.Assert.*;
-
 public class TriangleComparatorByPerimeterTest {
     private final Comparator<Triangle> comparator = new TriangleComparatorByPerimeter();
     private final Point POINT_A = new Point(0, 0);
     private final Point POINT_B = new Point(6, 0);
     private final Point POINT_C = new Point(0, 8);
     private final Point POINT_D = new Point(3, 0);
-    private final Point POINT_E = new Point(0,4);
+    private final Point POINT_E = new Point(0, 4);
     private final Triangle TRIANGLE1 = new Triangle(POINT_A, POINT_B, POINT_C);
     private final Triangle TRIANGLE2 = new Triangle(POINT_A, POINT_E, POINT_D);
 

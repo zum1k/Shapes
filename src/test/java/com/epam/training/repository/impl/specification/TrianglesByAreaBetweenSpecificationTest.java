@@ -22,10 +22,10 @@ public class TrianglesByAreaBetweenSpecificationTest {
     private final Point POINT_D = new Point(0, 0);
     private final Point POINT_E = new Point(10, 0);
     private final Point POINT_F = new Point(0, 40);
-    private final Triangle TRIANGLE2 = new Triangle(POINT_D, POINT_E, POINT_F);
+    private final Triangle TRIANGLE2 = new Triangle(POINT_A, POINT_B, POINT_C);
 
 
-    private Specification<Triangle> specification = new TrianglesByAreaBetweenSpecification(area1,area2);
+    private final Specification<Triangle> specification = new TrianglesByAreaBetweenSpecification(5,105);
 
     @Test
     public void testIsSpecified_Ten_Between_Five_OneZeroFive_True() {
@@ -36,10 +36,10 @@ public class TrianglesByAreaBetweenSpecificationTest {
     }
 
     @Test
-    public void testIsSpecified_TwoZeroZero_Between_Five_OneZeroFive_False() {
+    public void testIsSpecified_Ten_Between_Five_OneZeroFive_False() {
         //when
-        boolean result = specification.isSpecified(TRIANGLE2);
+        boolean result = specification.isSpecified(TRIANGLE1);
         //then
-        Assert.assertFalse(result);
+        Assert.assertTrue(result);
     }
 }
