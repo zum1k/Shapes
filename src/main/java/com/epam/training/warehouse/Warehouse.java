@@ -28,11 +28,11 @@ public class Warehouse {
 
     public void putParameters(Id id, TriangleParameters parameters) {
         triangleMap.put(id, parameters);
-        LOGGER.info("TriangleParameters object added" + id + "  " + parameters);
+        LOGGER.info("TriangleParameters object added " + id + "  " + parameters);
     }
 
     public TriangleParameters getParameters(Id id) {
-        LOGGER.info("Object returned" + id);
+        LOGGER.info("Object returned " + id);
         return triangleMap.get(id);
     }
 }

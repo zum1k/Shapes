@@ -52,8 +52,8 @@ public class Point {
 
     @Override
     public String toString() {
-        return new String( new StringBuffer().append("{ ").append("y=").append(y).
-                append(", x=").append(x).append('}'));
+        return new StringBuilder().append("{ ").append("y = ").append(y).
+                append(", x = ").append(x).append('}').toString();
 
     }
 }

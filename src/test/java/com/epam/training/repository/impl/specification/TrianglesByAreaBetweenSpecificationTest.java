@@ -25,7 +25,7 @@ public class TrianglesByAreaBetweenSpecificationTest {
     private final Triangle TRIANGLE2 = new Triangle(POINT_A, POINT_B, POINT_C);
 
 
-    private final Specification<Triangle> specification = new TrianglesByAreaBetweenSpecification(5,105);
+    private final Specification<Triangle> specification = new TrianglesByAreaBetweenSpecification(area1,area2);
 
     @Test
     public void testIsSpecified_Ten_Between_Five_OneZeroFive_True() {
