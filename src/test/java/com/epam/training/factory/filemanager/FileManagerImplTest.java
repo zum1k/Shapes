@@ -11,7 +11,7 @@ public class FileManagerImplTest {
     private final FileManagerImpl fileManager = new FileManagerImpl();
 
     @Test
-    public void testReadStrings() throws FileManagerException {
+    public void testReadStrings_Strings_True() throws FileManagerException {
         //given
         String path = "src/test/resources/Points.txt";
         int fileStrings = 7;
@@ -23,7 +23,7 @@ public class FileManagerImplTest {
     }
 
     @Test(expectedExceptions = FileManagerException.class)
-    public void testTestReadStrings() throws FileManagerException {
+    public void testTestReadStrings_Exception() throws FileManagerException {
         //given
         String path = "src/test/resources/qwe.txt";
         //when
